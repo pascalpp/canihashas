@@ -1,6 +1,9 @@
 @import './reset.less';
 
 body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	line-height: 1.42;
 	background-image: linear-gradient(to bottom right, #c1c2d1, #727986);
 	background-size: cover;
 	background-attachment: fixed;
@@ -9,30 +12,112 @@ body {
 	min-height: 100%;
 }
 
+a {
+	color: steelblue;
+}
+
 main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 3vh;
 	min-height: 100vh;
-	padding: 20px;
 	@media screen and (max-width: 600px) {
-		height: 60vh;
+		padding: 5vh;
+		min-height: 60vh;
 	}
 }
 
 figure {
 	padding: 2vh;
 	background-color: white;
-	border: 1px solid fade(black, 10%);
-	box-shadow: 0 10px 10px 0px fade(black, 30%);
+	border: 1px solid fade(black, 50%);
+	border-radius: 2px;
 	width: max-content;
-	transform: rotate(-2deg);
+	transform: rotate(var(--deg, -1deg));
+}
+
+.cat {
+	box-shadow: 0 10px 10px 0px fade(black, 30%);
+	a {
+		display: block;
+		position: relative;
+	}
 }
 
 img {
 	display: block;
 	max-width: 70vw;
 	max-height: 70vh;
-	aspect-ratio: 0.6667;
+	aspect-ratio: 0.68681319;
+	@media screen and (max-width: 600px) {
+		max-width: 60vw;
+		max-height: 60vh;
+	}
+}
+
+h1 {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	margin: 0;
+	color: black;
+	text-decoration: none;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	text-shadow: 0 0 10px black;
+	line-height: 1.5;
+	white-space: nowrap;
+	&::before {
+		content: attr(data-text);
+		display: block;
+		position: absolute;
+		width: 100%;
+		left: 0px;
+		top: 0px;
+		color: white;
+		transform: translate(-2px, -2px);
+	}
+
+	&.question {
+		top: 0;
+		left: 0;
+		font-size: min(7vh, 7vw);
+	}
+
+	&.answer {
+		bottom: 0;
+		left: 0;
+		font-size: 14vh;
+		line-height: 1.1;
+	}
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 2vw;
+	@media screen and (max-width: 600px) {
+		flex-direction: column;
+		gap: 1vh;
+	}
+}
+
+.well-actually {
+	max-width: min(300px, 80vw);
+	box-shadow: 0 5px 5px 0px fade(black, 30%);
+
+	.has-support {
+		display: none;
+	}
+
+	&:has(.has-support) {
+		.has-support {
+			display: block;
+		}
+		.no-support {
+			display: none;
+		}
+	}
 }
