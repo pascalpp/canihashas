@@ -28,17 +28,20 @@
 				<h1 class="answer" data-text={answer}>{answer}</h1>
 			</a>
 		</figure>
-		<figure class="well-actually" style="--deg: 3deg">
-			<p class="has-support">
-				Your browser supports :has, but the latest version of Firefox doesn’t yet. <a
-					href="https://bugzilla.mozilla.org/show_bug.cgi?id=1853701">Hopefully soon!</a
-				>
-			</p>
-			<p class="no-support">
-				Your browser doesn’t support :has. But most do, so <a
-					href="https://bugzilla.mozilla.org/show_bug.cgi?id=1853701">hopefully yours will soon!</a
-				>
-			</p>
-		</figure>
+		{#if !has}
+			<figure class="well-actually" style="--deg: 3deg">
+				<p class="has-support">
+					Your browser supports :has, but the latest version of Firefox doesn’t yet. <a
+						href="https://bugzilla.mozilla.org/show_bug.cgi?id=1853701">Hopefully soon!</a
+					>
+				</p>
+				<p class="no-support">
+					Your browser doesn’t support :has. But most do, so <a
+						href="https://bugzilla.mozilla.org/show_bug.cgi?id=1853701"
+						>hopefully yours will soon!</a
+					>
+				</p>
+			</figure>
+		{/if}
 	</div>
 </main>
