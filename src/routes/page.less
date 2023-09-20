@@ -9,7 +9,7 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
+	min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 }
 
 figure {
@@ -22,6 +22,7 @@ figure {
 
 img {
 	display: block;
-	width: 50vh;
+	max-width: 80vw;
+	height: 70vh;
 	aspect-ratio: 0.6667;
 }
