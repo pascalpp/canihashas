@@ -1,7 +1,11 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-
-	export let data: PageData;
+	import './page.less';
 </script>
 
-<pre>{JSON.stringify(data, null, 2)}</pre>
+<main>
+	<figure>
+		<a href="https://caniuse.com/css-has">
+			<img src="/icanhashas.jpg" alt="I can has :has? NO" />
+		</a>
+	</figure>
+</main>
